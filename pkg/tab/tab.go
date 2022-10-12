@@ -1,5 +1,7 @@
 package tab
 
+import "time"
+
 type Item struct{}
 
 type TabInterface interface {
@@ -7,4 +9,14 @@ type TabInterface interface {
 	IsFull() bool
 	Settle() error
 	Total() int
+}
+
+type Tab struct {
+	Id         string
+	Currency   string
+	Limit      int
+	CreatedAt  time.Time
+	Items      []*Item
+	Status     string
+	CustomerId string
 }
